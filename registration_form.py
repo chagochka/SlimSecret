@@ -8,7 +8,13 @@ from main_form import MainForm
 
 
 class RegistrationForm(QMainWindow):
+	"""
+	Класс для создания формы регистрации.
+	"""
 	def __init__(self):
+		"""
+		Инициализирует форму регистрации.
+		"""
 		super().__init__()
 		uic.loadUi('designs/registr.ui', self)
 		self.setWindowTitle('Регистрация')
@@ -16,6 +22,12 @@ class RegistrationForm(QMainWindow):
 		self.Button.clicked.connect(self.registration)
 
 	def registration(self):
+		"""
+		Обработка данных формы и добавление пользователя в базу данных.
+        После коммита изменений и закрытия соединения с базой данных, метод закрывает форму регистрации
+        и открывает MainForm.
+		:return:
+		"""
 		params = [self.weight.value(), self.height.value(), self.age.value(), self.male.currentText(),
 		          self.activity.currentText(), self.target.currentText()]
 
