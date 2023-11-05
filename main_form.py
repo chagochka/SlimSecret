@@ -3,13 +3,16 @@ import datetime as dt
 import locale
 import sqlite3
 import sys
-from calculate_ccal import calculate_calories
 
 from PyQt5 import uic
+from PyQt5.Qt import QPainter
+from PyQt5.QtChart import QChart, QChartView, QPieSeries
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QMainWindow, QDialog, QCalendarWidget, QVBoxLayout, QWidget, QLineEdit, QDoubleSpinBox, \
 	QSpinBox, QComboBox, QMessageBox
 from googletrans import Translator
+
+from calculate_ccal import calculate_calories
 
 locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
 
@@ -100,6 +103,22 @@ class AddKcalDialog(QDialog):
 		uic.loadUi('designs/add_kcal_dialog.ui', self)
 		self.setWindowTitle('Добавить продукт')
 
+		self.series = QPieSeries()
+		self.series.setHorizontalPosition(0.5)
+		self.series.setPieSize(0.6)
+
+		chart = QChart()
+		chart.legend().setAlignment(Qt.AlignLeft)
+		chart.addSeries(self.series)
+
+		chart.setAnimationOptions(QChart.SeriesAnimations)
+		chart.setTheme(QChart.ChartThemeDark)
+
+		chartview = QChartView(chart)
+		chartview.setRenderHint(QPainter.Antialiasing)
+		self.graph_layout.addWidget(chartview)
+
+		self.series.hovered.connect(self.handle_hovered)
 		self.searchButton.clicked.connect(self.search_product)
 		self.search_line.editingFinished.connect(self.search_product)
 		self.weight.valueChanged.connect(self.calc_kcal)
@@ -143,14 +162,21 @@ class AddKcalDialog(QDialog):
 					self.productList.addItem(f'{translated_products[i]}\t{products[i][0]}')
 
 	def select_product(self, item):
+		self.series.clear()
+
 		product_name, en_product = item.text().split('\t')
 
-		kcal_product = cur.execute(f"""SELECT Energy_kcal FROM Food
+		data_product = cur.execute(f"""SELECT Energy_kcal, Fat_g, Carb_g, Protein_g, Sugar_g   FROM Food
                                         WHERE Descrip = ?""", (en_product,)).fetchone()
 
 		self.product_name.setText(product_name)
-		self.kcal.setValue(float(kcal_product[0]))
+		self.kcal.setValue(float(data_product[0]))
 		self.calc_kcal()
+
+		self.series.append(f'Белки {data_product[3]}г', float(data_product[3]))
+		self.series.append(f'Жиры {data_product[1]}г', float(data_product[1]))
+		self.series.append(f'Углеводы {data_product[2]}г', float(data_product[2]))
+		self.series.append(f'Сахар {data_product[4]}г', float(data_product[4]))
 
 	def calc_kcal(self):
 		self.total_kcal.setValue((self.kcal.value() / 100) * self.weight.value())
@@ -158,6 +184,14 @@ class AddKcalDialog(QDialog):
 	def keyPressEvent(self, event):
 		if event.key() == Qt.Key_Return:
 			pass
+
+	def handle_hovered(self, slice, state):
+		if state:
+			slice.setExploded(True)
+			slice.setLabelVisible(True)
+		else:
+			slice.setExploded(False)
+			slice.setLabelVisible(False)
 
 
 class CalendarDialog(QDialog):

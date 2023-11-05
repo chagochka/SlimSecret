@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>739</width>
-    <height>251</height>
+    <width>746</width>
+    <height>605</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
    <property name="geometry">
     <rect>
      <x>624</x>
-     <y>210</y>
+     <y>211</y>
      <width>101</width>
      <height>31</height>
     </rect>
@@ -42,7 +42,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>460</x>
-     <y>210</y>
+     <y>211</y>
      <width>141</width>
      <height>31</height>
     </rect>
@@ -64,7 +64,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>540</x>
-     <y>30</y>
+     <y>31</y>
      <width>181</width>
      <height>31</height>
     </rect>
@@ -82,7 +82,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>30</y>
+     <y>31</y>
      <width>191</width>
      <height>21</height>
     </rect>
@@ -105,7 +105,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>540</x>
-     <y>80</y>
+     <y>81</y>
      <width>177</width>
      <height>27</height>
     </rect>
@@ -133,7 +133,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>80</y>
+     <y>81</y>
      <width>177</width>
      <height>27</height>
     </rect>
@@ -156,7 +156,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>120</y>
+     <y>121</y>
      <width>181</width>
      <height>21</height>
     </rect>
@@ -179,7 +179,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>540</x>
-     <y>120</y>
+     <y>121</y>
      <width>177</width>
      <height>27</height>
     </rect>
@@ -207,7 +207,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>60</y>
+     <y>61</y>
      <width>271</width>
      <height>181</height>
     </rect>
@@ -220,7 +220,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>20</y>
+     <y>21</y>
      <width>221</width>
      <height>31</height>
     </rect>
@@ -238,7 +238,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>260</x>
-     <y>20</y>
+     <y>21</y>
      <width>31</width>
      <height>31</height>
     </rect>
@@ -261,7 +261,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>540</x>
-     <y>160</y>
+     <y>161</y>
      <width>177</width>
      <height>27</height>
     </rect>
@@ -289,7 +289,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>340</x>
-     <y>160</y>
+     <y>161</y>
      <width>181</width>
      <height>21</height>
     </rect>
@@ -307,6 +307,17 @@ color: rgb(255, 255, 255);</string>
    <property name="text">
     <string>Всего</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>260</y>
+     <width>701</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="graph_layout"/>
   </widget>
  </widget>
  <resources/>
