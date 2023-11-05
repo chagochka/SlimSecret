@@ -364,7 +364,7 @@ color: rgb(255, 255, 255);</string>
     <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>Вес</string>
+    <string>Вес(кг)</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_8">
@@ -433,7 +433,7 @@ color: rgb(255, 255, 255);</string>
     <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>Возраст</string>
+    <string>Возраст(лет)</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_2">
@@ -479,7 +479,7 @@ color: rgb(255, 255, 255);</string>
     <string notr="true">color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>Рост</string>
+    <string>Рост(см)</string>
    </property>
   </widget>
   <widget class="QPushButton" name="ChangeButton">
