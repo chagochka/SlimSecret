@@ -30,6 +30,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../images/add-user.png</normaloff>../images/add-user.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color:#2B2D30;</string>
   </property>
