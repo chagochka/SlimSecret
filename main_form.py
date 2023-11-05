@@ -23,7 +23,15 @@ translator = Translator()
 
 
 class UserDialog(QDialog):
+	"""
+	Класс для создания диалогового окна пользователя.
+	"""
+
 	def __init__(self, user_data):
+		"""
+		Инициализация диалогового окна пользователя.
+		:param dict user_data: Словарь с данными пользователя
+		"""
 		super(UserDialog, self).__init__()
 		uic.loadUi('designs/user_dialog.ui', self)
 		self.setWindowTitle(user_data['name'])
@@ -53,9 +61,17 @@ class UserDialog(QDialog):
 				widget.currentIndexChanged.connect(self.change_data)
 
 	def Ok(self):
+		"""
+		Закрывает диалоговое окно
+		:return:
+		"""
 		self.close()
 
 	def remove_user(self):
+		"""
+		Удаляет пользователя из базы данных.
+		:return:
+		"""
 		cur.execute('''DELETE FROM User''')
 		cur.execute('''DELETE FROM Dates''')
 		cur.execute('''DELETE FROM Used_food''')
@@ -64,6 +80,10 @@ class UserDialog(QDialog):
 		sys.exit()
 
 	def change_data(self):
+		"""
+		Изменяет данные пользователя.
+		:return:
+		"""
 		if self.sender().objectName() in self.user_data:
 			if isinstance(self.sender(), QComboBox):
 				self.user_data[self.sender().objectName()] = self.sender().currentText()
@@ -73,6 +93,10 @@ class UserDialog(QDialog):
 				self.user_data[self.sender().objectName()] = self.sender().text()
 
 	def save_changes(self):
+		"""
+		Сохраняет изменения в базе данных.
+		:return:
+		"""
 		slc = list(self.user_data.values())[2:-1]
 		if calculate_calories(*slc)[1] < 18.5:
 			QMessageBox.warning(self, "Предупреждение",
@@ -88,6 +112,10 @@ class UserDialog(QDialog):
 		self.close()
 
 	def save_file(self):
+		"""
+		Сохраняет данные пользователя в файл.
+		:return:
+		"""
 		f = open(f"данные_{self.user_data['name']}.txt", 'w', encoding='UTF-8')
 		f.write('\n'.join([f'{i}: {self.user_data[i]}' for i in self.user_data]))
 		f.close()
@@ -98,7 +126,17 @@ class UserDialog(QDialog):
 
 
 class AddKcalDialog(QDialog):
+	"""
+	Класс для создания диалогового окна добавления калорий.
+	"""
+
 	def __init__(self, date_id, meal):
+		"""
+		Инициализация диалогового окна добавления калорий.
+
+		:param int date_id: id даты
+		:param str meal: приём пищи
+		"""
 		super(AddKcalDialog, self).__init__()
 		uic.loadUi('designs/add_kcal_dialog.ui', self)
 		self.setWindowTitle('Добавить продукт')
@@ -130,6 +168,10 @@ class AddKcalDialog(QDialog):
 		self.meal = meal
 
 	def Ok(self):
+		"""
+		Сохраняет продукт в базе данных и закрывает диалоговое окно.
+		:return:
+		"""
 		if self.product_name.text():
 			cur.execute(f'''INSERT INTO Used_food (name, kcal, date_id, meal)
 			                VALUES {(self.product_name.text(), self.total_kcal.value(), self.date_id, self.meal)}''')
@@ -139,10 +181,20 @@ class AddKcalDialog(QDialog):
 
 	# Функция для перевода текста
 	def translate_text(self, text, dest_lang):
+		"""
+		Переводит текст на указанный язык.
+		:param str text:
+		:param str dest_lang:
+		:return:
+		"""
 		result = translator.translate(text, dest=dest_lang)
 		return result.text
 
 	def search_product(self):
+		"""
+		Поиск продукта по названию.
+		:return:
+		"""
 		self.productList.clear()
 
 		if self.search_line.text():
@@ -162,6 +214,11 @@ class AddKcalDialog(QDialog):
 					self.productList.addItem(f'{translated_products[i]}\t{products[i][0]}')
 
 	def select_product(self, item):
+		"""
+		Выбор продукта из списка.
+		:param item:
+		:return:
+		"""
 		self.series.clear()
 
 		product_name, en_product = item.text().split('\t')
@@ -179,6 +236,10 @@ class AddKcalDialog(QDialog):
 		self.series.append(f'Сахар {data_product[4]}г', float(data_product[4]))
 
 	def calc_kcal(self):
+		"""
+		Расчет общего количества калорий в продукте.
+		:return:
+		"""
 		self.total_kcal.setValue((self.kcal.value() / 100) * self.weight.value())
 
 	def keyPressEvent(self, event):
@@ -186,6 +247,12 @@ class AddKcalDialog(QDialog):
 			pass
 
 	def handle_hovered(self, slice, state):
+		"""
+		Обработка события наведения на участок диаграммы
+		:param slice:
+		:param state:
+		:return:
+		"""
 		if state:
 			slice.setExploded(True)
 			slice.setLabelVisible(True)
@@ -195,7 +262,13 @@ class AddKcalDialog(QDialog):
 
 
 class CalendarDialog(QDialog):
+	"""
+	Класс для создания диалогового окна выбора даты.
+	"""
 	def __init__(self):
+		"""
+		Инициализация диалогового окна выбора даты.
+		"""
 		super(CalendarDialog, self).__init__()
 		self.setWindowTitle('Выбор даты')
 
@@ -209,12 +282,22 @@ class CalendarDialog(QDialog):
 		self.setLayout(layout)
 
 	def get_date(self):
+		"""
+		Возвращает выбранную дату.
+		:return:
+		"""
 		self.close()
 		return self.calendar.selectedDate().toString("yyyy-MM-dd")
 
 
 class MainForm(QMainWindow):
+	"""
+	Класс для создания основной формы приложения.
+	"""
 	def __init__(self):
+		"""
+		Инициализация основной формы приложения.
+		"""
 		super().__init__()
 		uic.loadUi('designs/main_design.ui', self)
 		self.setWindowTitle('SlimSecret')
@@ -249,6 +332,11 @@ class MainForm(QMainWindow):
 		self.update_values()
 
 	def update_values(self):
+		"""
+		Обновление значений на форме.
+
+		:return:
+		"""
 		self.breakfest_list.clear()
 		self.dinner_list.clear()
 		self.supper_list.clear()
@@ -314,12 +402,20 @@ class MainForm(QMainWindow):
 			self.left_kcal.setText('0')
 
 	def add_kcal(self):
+		"""
+		Добавление калорий из выбранного продукта.
+		:return:
+		"""
 		dialog = AddKcalDialog(self.date_data[0], self.meal_dict[self.sender()])
 		dialog.exec_()
 
 		self.update_values()
 
 	def del_kcal(self):
+		"""
+		Удаление калорий продукта.
+		:return:
+		"""
 		lst = self.del_dict[self.sender()]
 		row = lst.currentRow()
 		if row >= 0:
@@ -332,12 +428,20 @@ class MainForm(QMainWindow):
 			self.update_values()
 
 	def get_user_info(self):
+		"""
+		Получение информации о пользователе.
+		:return:
+		"""
 		dialog = UserDialog(self.user_data)
 		dialog.exec_()
 
 		self.update_values()
 
 	def open_calendar_dialog(self):
+		"""
+		Открытие диалогового окна выбора даты.
+		:return:
+		"""
 		dialog = CalendarDialog()
 		dialog.exec_()
 
