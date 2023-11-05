@@ -11,6 +11,7 @@ class RegistrationForm(QMainWindow):
 	"""
 	Класс для создания формы регистрации.
 	"""
+
 	def __init__(self):
 		"""
 		Инициализирует форму регистрации.
