@@ -216,7 +216,7 @@ class AddKcalDialog(QDialog):
 	def select_product(self, item):
 		"""
 		Выбор продукта из списка.
-		:param item:
+		:param QListWidgetItem item: Элемент списка 
 		:return:
 		"""
 		self.series.clear()
@@ -249,8 +249,8 @@ class AddKcalDialog(QDialog):
 	def handle_hovered(self, slice, state):
 		"""
 		Обработка события наведения на участок диаграммы
-		:param slice:
-		:param state:
+		:param slice: Участок диаграммы
+		:param state: Состояние участка
 		:return:
 		"""
 		if state:
@@ -284,7 +284,7 @@ class CalendarDialog(QDialog):
 	def get_date(self):
 		"""
 		Возвращает выбранную дату.
-		:return:
+		:return: Строка сожержащяя выбранную дату
 		"""
 		self.close()
 		return self.calendar.selectedDate().toString("yyyy-MM-dd")
@@ -334,7 +334,6 @@ class MainForm(QMainWindow):
 	def update_values(self):
 		"""
 		Обновление значений на форме.
-
 		:return:
 		"""
 		self.breakfest_list.clear()
@@ -429,7 +428,7 @@ class MainForm(QMainWindow):
 
 	def get_user_info(self):
 		"""
-		Получение информации о пользователе.
+		Открытие диалогового окна с информацией о пользователе.
 		:return:
 		"""
 		dialog = UserDialog(self.user_data)
