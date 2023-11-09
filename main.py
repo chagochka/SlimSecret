@@ -19,6 +19,10 @@ def except_hook(cls, exception, traceback):
 
 
 def main(form):
+	"""
+ 	Открытие нужной формы
+ 	:return:
+ 	"""
 	app = QApplication(sys.argv)
 	ex = form()
 	ex.show()
