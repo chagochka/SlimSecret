@@ -444,6 +444,9 @@ color: rgb(255, 255, 255);</string>
      <string notr="true">border-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);</string>
     </property>
+    <property name="minimum">
+     <number>1</number>
+    </property>
     <property name="maximum">
      <number>300</number>
     </property>

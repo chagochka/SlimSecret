@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>809</width>
-    <height>757</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,10 +24,10 @@
    <widget class="QLabel" name="user_name">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>90</x>
       <y>20</y>
       <width>201</width>
-      <height>61</height>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -48,8 +48,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>290</y>
+      <x>20</x>
+      <y>220</y>
       <width>251</width>
       <height>51</height>
      </rect>
@@ -72,8 +72,8 @@ padding-left: 20px;</string>
    <widget class="QPushButton" name="BreakfastButton">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>360</y>
+      <x>290</x>
+      <y>290</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -108,8 +108,8 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>290</y>
+      <x>180</x>
+      <y>220</y>
       <width>81</width>
       <height>51</height>
      </rect>
@@ -130,8 +130,8 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>290</y>
+      <x>410</x>
+      <y>220</y>
       <width>251</width>
       <height>51</height>
      </rect>
@@ -154,8 +154,8 @@ padding-left: 20px;</string>
    <widget class="QPushButton" name="DinnerButton">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>360</y>
+      <x>680</x>
+      <y>290</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -190,8 +190,8 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>520</y>
+      <x>20</x>
+      <y>400</y>
       <width>251</width>
       <height>51</height>
      </rect>
@@ -214,8 +214,8 @@ padding-left: 20px;</string>
    <widget class="QPushButton" name="SupperButton">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>590</y>
+      <x>290</x>
+      <y>470</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -250,8 +250,8 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>520</y>
+      <x>410</x>
+      <y>400</y>
       <width>251</width>
       <height>51</height>
      </rect>
@@ -274,8 +274,8 @@ padding-left: 20px;</string>
    <widget class="QPushButton" name="OtherButton">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>590</y>
+      <x>680</x>
+      <y>470</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -310,8 +310,8 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>290</y>
+      <x>570</x>
+      <y>220</y>
       <width>81</width>
       <height>51</height>
      </rect>
@@ -332,8 +332,8 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="label_12">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>520</y>
+      <x>180</x>
+      <y>400</y>
       <width>81</width>
       <height>51</height>
      </rect>
@@ -354,8 +354,8 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="label_13">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>520</y>
+      <x>610</x>
+      <y>400</y>
       <width>41</width>
       <height>51</height>
      </rect>
@@ -377,9 +377,9 @@ background-color: #3F4247;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>90</y>
-      <width>809</width>
-      <height>61</height>
+      <y>70</y>
+      <width>800</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
@@ -400,8 +400,8 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="breakfast_kcal">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>290</y>
+      <x>290</x>
+      <y>220</y>
       <width>101</width>
       <height>51</height>
      </rect>
@@ -426,8 +426,8 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="dinner_kcal">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>290</y>
+      <x>680</x>
+      <y>220</y>
       <width>101</width>
       <height>51</height>
      </rect>
@@ -452,8 +452,8 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="supper_kcal">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>520</y>
+      <x>290</x>
+      <y>400</y>
       <width>101</width>
       <height>51</height>
      </rect>
@@ -478,8 +478,8 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="other_kcal">
     <property name="geometry">
      <rect>
-      <x>690</x>
-      <y>520</y>
+      <x>680</x>
+      <y>400</y>
       <width>101</width>
       <height>51</height>
      </rect>
@@ -505,9 +505,9 @@ background-color: #3F4247;</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>180</y>
-      <width>201</width>
-      <height>31</height>
+      <y>140</y>
+      <width>181</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
@@ -529,9 +529,9 @@ background-color: #3F4247;</string>
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>230</y>
-      <width>201</width>
-      <height>31</height>
+      <y>180</y>
+      <width>181</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
@@ -553,14 +553,14 @@ background-color: #3F4247;</string>
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>180</y>
-      <width>91</width>
-      <height>31</height>
+      <y>140</y>
+      <width>101</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
+      <pointsize>13</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -577,14 +577,14 @@ background-color: #3F4247;</string>
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>230</y>
-      <width>91</width>
-      <height>31</height>
+      <y>180</y>
+      <width>101</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>14</pointsize>
+      <pointsize>13</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -601,7 +601,7 @@ background-color: #3F4247;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>20</y>
+      <y>10</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -623,15 +623,15 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="rsk_kcal">
     <property name="geometry">
      <rect>
-      <x>446</x>
-      <y>180</y>
-      <width>211</width>
-      <height>81</height>
+      <x>456</x>
+      <y>140</y>
+      <width>151</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>49</pointsize>
+      <pointsize>32</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -647,10 +647,10 @@ background-color: #3F4247;</string>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>646</x>
-      <y>160</y>
-      <width>111</width>
-      <height>101</height>
+      <x>620</x>
+      <y>120</y>
+      <width>151</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="text">
@@ -669,10 +669,10 @@ background-color: #3F4247;</string>
    <widget class="QPushButton" name="calendarButton">
     <property name="geometry">
      <rect>
-      <x>700</x>
-      <y>90</y>
+      <x>730</x>
+      <y>70</y>
       <width>61</width>
-      <height>61</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="text">
@@ -695,10 +695,10 @@ background-color: #3F4247;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>350</y>
+      <x>20</x>
+      <y>280</y>
       <width>251</width>
-      <height>151</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -711,10 +711,10 @@ background-color: #3F4247;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>350</y>
+      <x>410</x>
+      <y>280</y>
       <width>251</width>
-      <height>151</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -727,10 +727,10 @@ background-color: #3F4247;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>580</y>
+      <x>20</x>
+      <y>460</y>
       <width>251</width>
-      <height>151</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -743,10 +743,10 @@ background-color: #3F4247;</string>
     </property>
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>580</y>
+      <x>410</x>
+      <y>460</y>
       <width>251</width>
-      <height>151</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -756,8 +756,8 @@ background-color: #3F4247;</string>
    <widget class="QPushButton" name="BreakfastButton_2">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>360</y>
+      <x>350</x>
+      <y>290</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -791,8 +791,8 @@ background-color: #3F4247;</string>
    <widget class="QPushButton" name="BreakfastButton_3">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>590</y>
+      <x>350</x>
+      <y>470</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -826,8 +826,8 @@ background-color: #3F4247;</string>
    <widget class="QPushButton" name="BreakfastButton_4">
     <property name="geometry">
      <rect>
-      <x>750</x>
-      <y>360</y>
+      <x>740</x>
+      <y>290</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -861,8 +861,8 @@ background-color: #3F4247;</string>
    <widget class="QPushButton" name="BreakfastButton_5">
     <property name="geometry">
      <rect>
-      <x>750</x>
-      <y>590</y>
+      <x>740</x>
+      <y>470</y>
       <width>41</width>
       <height>41</height>
      </rect>
@@ -899,7 +899,7 @@ background-color: #3F4247;</string>
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="delete_buttons"/>
   <buttongroup name="add_kcal_buttons"/>
+  <buttongroup name="delete_buttons"/>
  </buttongroups>
 </ui>
