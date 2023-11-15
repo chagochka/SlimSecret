@@ -37,6 +37,7 @@ class UserDialog(QDialog):
 		self.setWindowTitle(user_data['name'])
 
 		self.user_data = user_data
+		self.filename = f"данные_{self.user_data['name']}.txt"
 
 		self.name.setText(user_data['name'])
 		self.age.setValue(user_data['age'])
@@ -75,6 +76,9 @@ class UserDialog(QDialog):
 		cur.execute('''DELETE FROM User''')
 		cur.execute('''DELETE FROM Dates''')
 		cur.execute('''DELETE FROM Used_food''')
+
+		if os.path.exists(self.filename):
+			os.remove(self.filename)
 
 		con.commit()
 		sys.exit()
@@ -116,7 +120,7 @@ class UserDialog(QDialog):
 		Сохраняет данные пользователя в файл.
 		:return:
 		"""
-		f = open(f"данные_{self.user_data['name']}.txt", 'w', encoding='UTF-8')
+		f = open(self.filename, 'w', encoding='UTF-8')
 		f.write('\n'.join([f'{i}: {self.user_data[i]}' for i in self.user_data]))
 		f.close()
 
