@@ -54,6 +54,7 @@ class UserDialog(QDialog):
 		self.ChangeButton.clicked.connect(self.save_changes)
 		self.FileButton.clicked.connect(self.save_file)
 
+		# Привязывание событий изменения данных к виджетам
 		for widget in self.groupBox.findChildren(QWidget):
 			if isinstance(widget, QLineEdit):
 				widget.editingFinished.connect(self.change_data)
@@ -72,6 +73,7 @@ class UserDialog(QDialog):
 	def remove_user(self):
 		"""
 		Удаляет пользователя из базы данных.
+		Также удаляет файл с данными пользователя, если он существует.
 		:return:
 		"""
 		cur.execute('''DELETE FROM User''')
@@ -86,7 +88,7 @@ class UserDialog(QDialog):
 
 	def change_data(self):
 		"""
-		Изменяет данные пользователя.
+		Изменяет данные пользователя на основе виджета, который вызвал метод..
 		:return:
 		"""
 		if self.sender().objectName() in self.user_data:
@@ -103,6 +105,8 @@ class UserDialog(QDialog):
 		:return:
 		"""
 		slc = list(self.user_data.values())[2:-1]
+
+		# Если индекс массы тела ниже нормы, показывает предупреждающее сообщение.
 		if calculate_calories(*slc)[1] < 18.5:
 			QMessageBox.warning(self, "Предупреждение",
 			                    '''Ваш индекс массы тела ниже нормы, если введёные данные верны, \
@@ -188,8 +192,8 @@ class AddKcalDialog(QDialog):
 	def translate_text(self, text, dest_lang):
 		"""
 		Переводит текст на указанный язык.
-		:param str text:
-		:param str dest_lang:
+		:param str text: Текст который нужно перевести
+		:param str dest_lang: Языка на который нужно перевести
 		:return:
 		"""
 		result = translator.translate(text, dest=dest_lang)
@@ -208,6 +212,8 @@ class AddKcalDialog(QDialog):
 			products = cur.execute(f'''SELECT Descrip FROM Food
                                         WHERE Descrip LIKE "%{product}%"''').fetchmany(50)
 
+
+			# Объеденяем названия продуктов в одну строку, что бы не делать много запросов API(замедлит программу)
 			translated_products = ''
 			for i in products:
 				translated_products += i[0] + '\n'
