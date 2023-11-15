@@ -3,6 +3,7 @@ import datetime as dt
 import locale
 import sqlite3
 import sys
+import os
 
 from PyQt5 import uic
 from PyQt5.Qt import QPainter
