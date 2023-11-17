@@ -32,24 +32,28 @@ class RegistrationForm(QMainWindow):
 		params = [self.weight.value(), self.height.value(), self.age.value(), self.male.currentText(),
 		          self.activity.currentText(), self.target.currentText()]
 
-		if calculate_calories(*params)[1] < 18.5:
-			QMessageBox.warning(self, "Предупреждение",
-			                    '''Ваш индекс массы тела ниже нормы, если введёные данные верны, \
-								то вам следует обратиться к врачу''')
 
-		params.append(calculate_calories(*params)[0])
-		params.insert(0, self.name.text())
-		params.insert(0, 1)
+		if calculate_calories(*params)[0] <= 0:
+			QMessageBox.critical(self, "Ошибка", 'Похоже вы ввели некоррректную информацию')
+		else:
+			if calculate_calories(*params)[1] < 18.5:
+				QMessageBox.warning(self, "Предупреждение",
+				                    '''Ваш индекс массы тела ниже нормы, если введёные данные верны, \
+									то вам следует обратиться к врачу''')
 
-		con = sqlite3.connect('database.db')
-		cur = con.cursor()
+			params.append(calculate_calories(*params)[0])
+			params.insert(0, self.name.text())
+			params.insert(0, 1)
 
-		cur.execute(f'''INSERT INTO User VALUES {tuple(params)}''')
+			con = sqlite3.connect('database.db')
+			cur = con.cursor()
 
-		con.commit()
-		con.close()
+			cur.execute(f'''INSERT INTO User VALUES {tuple(params)}''')
 
-		self.close()
+			con.commit()
+			con.close()
 
-		self.main_form = MainForm()
-		self.main_form.show()
+			self.close()
+
+			self.main_form = MainForm()
+			self.main_form.show()
