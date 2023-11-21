@@ -15,7 +15,7 @@ from googletrans import Translator
 
 from calculate_ccal import calculate_calories
 
-locale.setlocale(locale.LC_ALL, 'ru_RU.UTF-8')
+locale.setlocale(locale.LC_ALL, '')
 
 con = sqlite3.connect('database.db')
 cur = con.cursor()
