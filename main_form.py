@@ -402,12 +402,12 @@ class MainForm(QMainWindow):
 		for i in other:
 			self.other_list.addItem(f'{i[0]}. {i[1]}\t{i[2]}')
 
-		self.total_kcal.setText(str(sum(map(float, [self.breakfast_kcal.text(), self.dinner_kcal.text(),
-		                                            self.supper_kcal.text(), self.other_kcal.text()]))))
+		self.total_kcal.setText(str(round(sum(map(float, [self.breakfast_kcal.text(), self.dinner_kcal.text(),
+		                                            self.supper_kcal.text(), self.other_kcal.text()])), 2)))
 
 		left_kcal = self.user_data['kcal'] - float(self.total_kcal.text())
 		if left_kcal > 0:
-			self.left_kcal.setText(str(left_kcal))
+			self.left_kcal.setText(str(round(left_kcal, 2)))
 		else:
 			self.left_kcal.setText('0')
 
